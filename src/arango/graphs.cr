@@ -15,7 +15,7 @@ class Arango::Graph
     @client.get("/_db/#{@database}/_api/gharial/#{name}")
   end
 
-  def create(body : Hash | Array)
+  def create(body)
     @client.post("/_db/#{@database}/_api/gharial", body)
   end
 

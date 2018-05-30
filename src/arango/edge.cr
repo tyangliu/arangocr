@@ -11,11 +11,11 @@ class Arango::Edge
     @client.post("/_db/#{@database}/_api/gharial/#{@graph}/edge/#{@definition}", body)
   end
 
-  def update(key : String, body : Hash | Array)
+  def update(key : String, body)
     @client.patch("/_db/#{@database}/_api/gharial/#{@graph}/edge/#{@definition}/#{key}", body)
   end
 
-  def replace(key : String, body : Hash | Array)
+  def replace(key : String, body)
     @client.put("/_db/#{@database}/_api/gharial/#{@graph}/edge/#{@definition}/#{key}", body)
   end
 

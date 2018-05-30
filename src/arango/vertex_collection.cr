@@ -11,7 +11,7 @@ class Arango::VertexCollection
     @client.get("/_db/#{@database}/_api/gharial/#{@graph}/vertex")
   end
 
-  def create(body : Hash | Array)
+  def create(body)
     @client.post("/_db/#{@database}/_api/gharial/#{@graph}/vertex", body)
   end
 

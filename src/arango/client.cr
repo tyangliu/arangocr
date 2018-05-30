@@ -28,7 +28,7 @@ class Arango::Client
     JSON.parse(response.body)
   end
 
-  def post(url : String, body : Hash | Array)
+  def post(url : String, body)
     response = @http.post(url, headers: headers, body: body.to_json)
     JSON.parse(response.body)
   end
@@ -43,7 +43,7 @@ class Arango::Client
     JSON.parse(response.body)
   end
 
-  def patch(url : String, body : Hash | Array)
+  def patch(url : String, body)
     response = @http.patch(url, headers: headers, body: body.to_json)
     JSON.parse(response.body)
   end
@@ -58,12 +58,12 @@ class Arango::Client
     response.body == "" ? {"code" => response.status_code} : JSON.parse(response.body)
   end
 
-  def delete(url : String, body : Hash)
+  def delete(url : String, body)
     response = @http.delete(url, headers: headers, body: body.to_json)
     JSON.parse(response.body)
   end
 
-  def put(url : String, body : Hash | Array)
+  def put(url : String, body)
     response = @http.put(url, headers: headers, body: body.to_json)
     JSON.parse(response.body)
   end

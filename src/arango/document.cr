@@ -15,11 +15,11 @@ class Arango::Document
     @client.head("/_db/#{@database}/_api/document/#{@collection}/#{id}")
   end
 
-  def create(body : Hash | Array, urlParams = "")
+  def create(body, urlParams = "")
     @client.post("/_db/#{@database}/_api/document/#{@collection}?#{urlParams}", body)
   end
 
-  def update(body : Hash | Array, urlParams = "")
+  def update(body, urlParams = "")
     @client.patch("/_db/#{@database}/_api/document/#{@collection}?#{urlParams}", body)
   end
 
