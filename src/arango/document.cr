@@ -19,8 +19,12 @@ class Arango::Document
     @client.post("/_db/#{@database}/_api/document/#{@collection}?#{urlParams}", body)
   end
 
-  def update(body, urlParams = "")
-    @client.patch("/_db/#{@database}/_api/document/#{@collection}?#{urlParams}", body)
+  def update(docs : Array(Object), urlParams = "")
+    @client.patch("/_db/#{@database}/_api/document/#{@collection}?#{urlParams}", docs)
+  end
+
+  def update(id : String, body, urlParams = "")
+    @client.patch("/_db/#{@database}/_api/document/#{@collection}/#{id}/?#{urlParams}", body)
   end
 
   def delete(id : String)
