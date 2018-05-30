@@ -6,10 +6,10 @@ class Arango::Collection
   getter client
 
   def initialize(@client, @database : String, @name : String)
-    create if status["code"] == 404
+    create if current.status_code == 404
   end
 
-  def status
+  def current
     @client.get("/_db/#{@database}/_api/#{@name}")
   end
 

@@ -24,58 +24,47 @@ class Arango::Client
   end
 
   def get(url : String)
-    response = @http.get(url, headers)
-    JSON.parse(response.body)
+    @http.get(url, headers)
   end
 
   def post(url : String, body)
-    response = @http.post(url, headers: headers, body: body.to_json)
-    JSON.parse(response.body)
+    @http.post(url, headers: headers, body: body.to_json)
   end
 
   def post(url : String, body : String)
-    response = @http.post(url, headers: headers, body: body)
-    JSON.parse(response.body)
+    @http.post(url, headers: headers, body: body)
   end
 
   def post(url : String)
-    response = @http.post(url, headers: headers)
-    JSON.parse(response.body)
+    @http.post(url, headers: headers)
   end
 
   def patch(url : String, body)
-    response = @http.patch(url, headers: headers, body: body.to_json)
-    JSON.parse(response.body)
+    @http.patch(url, headers: headers, body: body.to_json)
   end
 
   def patch(url : String, body : String)
-    response = @http.patch(url, headers: headers, body: body)
-    JSON.parse(response.body)
+    @http.patch(url, headers: headers, body: body)
   end
 
   def delete(url : String)
-    response = @http.delete(url, headers: headers)
-    response.body == "" ? {"code" => response.status_code} : JSON.parse(response.body)
+    @http.delete(url, headers: headers)
   end
 
   def delete(url : String, body)
-    response = @http.delete(url, headers: headers, body: body.to_json)
-    JSON.parse(response.body)
+    @http.delete(url, headers: headers, body: body.to_json)
   end
 
   def put(url : String, body)
-    response = @http.put(url, headers: headers, body: body.to_json)
-    JSON.parse(response.body)
+    @http.put(url, headers: headers, body: body.to_json)
   end
 
   def put(url : String, body : String)
-    response = @http.put(url, headers: headers, body: body)
-    JSON.parse(response.body)
+    @http.put(url, headers: headers, body: body)
   end
 
   def head(url : String)
-    response = @http.head(url, headers: headers)
-    JSON.parse(response.body)
+    @http.head(url, headers: headers)
   end
 
   private def headers

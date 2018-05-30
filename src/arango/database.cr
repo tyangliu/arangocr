@@ -6,7 +6,7 @@ class Arango::Database
   getter client
 
   def initialize(@client, @database : String)
-    create if current["code"] == 404
+    create if current.status_code == 404
   end
 
   protected def create
